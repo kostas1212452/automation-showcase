@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Automation Solutions | White Raven Technologies</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* White Raven Brand Colors */
+            --color-lightest: #DADAE5;
+            --color-light: #A8B0BE;
+            --color-mid: #495F6D;
+            --color-dark: #344E59;
+            --color-darkest: #1E363A;
+            --color-accent: #7D1417;
+            
+            /* Extended palette */
+            --bg-page: #f4f4f7;
+            --bg-white: #ffffff;
+            --shadow-sm: 0 1px 3px rgba(30, 54, 58, 0.06);
+            --shadow-md: 0 4px 20px rgba(30, 54, 58, 0.08);
+            --shadow-lg: 0 12px 40px rgba(30, 54, 58, 0.12);
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-page);
+            color: var(--color-dark);
+            line-height: 1.6;
+            font-size: 15px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-weight: 600;
+            color: var(--color-darkest);
+            line-height: 1.3;
+        }
+
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ========== HERO ========== */
+        .hero {
+            background: var(--bg-white);
+            padding: 80px 0 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-accent), var(--color-dark));
+        }
+
+        .hero-content {
+            max-width: 720px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(125, 20, 23, 0.08);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--color-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 24px;
+        }
+
+        .hero-tag::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--color-accent);
+            border-radius: 50%;
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: 17px;
+            color: var(--color-mid);
+            line-height: 1.7;
+        }
+
+        /* ========== MAIN CONTENT ========== */
+        .main-content {
+            padding: 60px 0 80px;
+        }
+
+        /* ========== AUTOMATION CARD ========== */
+        .automation-card {
+            background: var(--bg-white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            margin-bottom: 48px;
+        }
+
+        /* Workflow Image */
+        .workflow-visual {
+            background: linear-gradient(135deg, #f8f9fb 0%, #eef0f4 100%);
+            padding: 48px;
+            position: relative;
+        }
+
+        .workflow-visual::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 48px;
+            right: 48px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--color-lightest), transparent);
+        }
+
+        .workflow-frame {
+            background: var(--bg-white);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .workflow-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Production Status Line */
+        .production-status {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+            padding: 12px 20px;
+            background: rgba(30, 54, 58, 0.06);
+            border-radius: 100px;
+            font-size: 13px;
+            color: var(--color-mid);
+            max-width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: pulse-green 2s infinite;
+            flex-shrink: 0;
+        }
+
+        @keyframes pulse-green {
+            0%, 100% { 
+                opacity: 1; 
+                box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4);
+            }
+            50% { 
+                opacity: 0.8; 
+                box-shadow: 0 0 0 6px rgba(34, 197, 94, 0);
+            }
+        }
+
+        /* Card Body */
+        .card-body {
+            padding: 48px;
+        }
+
+        /* Card Header */
+        .card-header {
+            margin-bottom: 40px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid var(--color-lightest);
+        }
+
+        .card-eyebrow {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--color-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 12px;
+        }
+
+        .card-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
+        }
+
+        .card-subtitle {
+            font-size: 16px;
+            color: var(--color-mid);
+            max-width: 640px;
+            line-height: 1.7;
+        }
+
+        /* ========== TWO COLUMN SECTION ========== */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-bottom: 48px;
+        }
+
+        @media (max-width: 768px) {
+            .two-col { grid-template-columns: 1fr; }
+        }
+
+        .info-card {
+            background: var(--bg-white);
+            border-radius: var(--radius-lg);
+            padding: 32px 36px;
+            position: relative;
+            box-shadow: 0 2px 16px rgba(30, 54, 58, 0.06);
+            border: 1px solid rgba(168, 176, 190, 0.2);
+        }
+
+        .info-card-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--color-lightest);
+        }
+
+        .info-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 700;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .problem .info-icon {
+            background: var(--color-mid);
+        }
+
+        .solution .info-icon {
+            background: var(--color-accent);
+        }
+
+        .info-card h4 {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .problem h4 {
+            color: var(--color-mid);
+        }
+
+        .solution h4 {
+            color: var(--color-accent);
+        }
+
+        .info-card p {
+            font-size: 15px;
+            color: var(--color-dark);
+            line-height: 1.8;
+            letter-spacing: 0.01em;
+        }
+
+        .info-card ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .info-card li {
+            font-size: 15px;
+            color: var(--color-dark);
+            line-height: 1.7;
+            padding: 8px 0;
+            padding-left: 24px;
+            position: relative;
+            border-bottom: 1px solid rgba(218, 218, 229, 0.5);
+        }
+
+        .info-card li:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .info-card li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 16px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .problem li::before {
+            background: var(--color-light);
+        }
+
+        .solution li::before {
+            background: var(--color-accent);
+            opacity: 0.6;
+        }
+
+        /* ========== SECTION TITLE ========== */
+        .section-title {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-dark);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--color-lightest);
+        }
+
+        /* ========== STEPS GRID ========== */
+        .steps-section {
+            margin-bottom: 48px;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .steps-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 600px) {
+            .steps-grid { grid-template-columns: 1fr; }
+        }
+
+        .step-card {
+            background: var(--bg-page);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .step-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--color-lightest);
+        }
+
+        .step-image {
+            height: 140px;
+            background: linear-gradient(135deg, var(--color-lightest) 0%, #e8e8ef 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .step-image-placeholder {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .step-image-placeholder svg {
+            width: 32px;
+            height: 32px;
+            stroke: var(--color-light);
+            margin-bottom: 8px;
+        }
+
+        .step-image-placeholder span {
+            display: block;
+            font-size: 11px;
+            color: var(--color-light);
+        }
+
+        .step-body {
+            padding: 20px;
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: var(--color-accent);
+            color: white;
+            border-radius: 50%;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .step-body h5 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .step-body p {
+            font-size: 13px;
+            color: var(--color-mid);
+            line-height: 1.6;
+        }
+
+        /* ========== RESULTS ========== */
+        .results-section {
+            margin-bottom: 48px;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 12px;
+        }
+
+        @media (max-width: 900px) {
+            .results-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        @media (max-width: 500px) {
+            .results-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        .result-card {
+            background: var(--color-darkest);
+            border-radius: var(--radius-md);
+            padding: 20px 16px;
+            text-align: center;
+            color: white;
+            transition: transform 0.2s ease;
+        }
+
+        .result-card:hover {
+            transform: scale(1.02);
+        }
+
+        .result-card:nth-child(even) {
+            background: var(--color-accent);
+        }
+
+        .result-label {
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            opacity: 0.7;
+            margin-bottom: 8px;
+        }
+
+        .result-value {
+            font-size: 26px;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .result-detail {
+            font-size: 10px;
+            opacity: 0.6;
+        }
+
+        /* ========== BENEFITS ========== */
+        .benefits-section {
+            background: var(--bg-page);
+            border-radius: var(--radius-md);
+            padding: 28px;
+        }
+
+        .benefits-section h4 {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 20px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        @media (max-width: 600px) {
+            .benefits-grid { grid-template-columns: 1fr; }
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 14px;
+            color: var(--color-dark);
+            padding: 12px 16px;
+            background: var(--bg-white);
+            border-radius: var(--radius-sm);
+            transition: all 0.2s ease;
+        }
+
+        .benefit-item:hover {
+            box-shadow: var(--shadow-sm);
+        }
+
+        .benefit-check {
+            width: 20px;
+            height: 20px;
+            background: var(--color-darkest);
+            color: white;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            flex-shrink: 0;
+        }
+
+        /* ========== OPERATIONS / IN PRODUCTION ========== */
+        .operations-section {
+            margin-bottom: 48px;
+        }
+
+        .operations-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .operations-grid { grid-template-columns: 1fr; }
+        }
+
+        .ops-card {
+            background: linear-gradient(135deg, var(--color-darkest) 0%, var(--color-dark) 100%);
+            border-radius: var(--radius-md);
+            padding: 28px 24px;
+            text-align: center;
+            color: white;
+            transition: transform 0.2s ease;
+        }
+
+        .ops-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .ops-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+        }
+
+        .ops-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: rgba(255, 255, 255, 0.9);
+        }
+
+        .ops-card h5 {
+            font-size: 15px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .ops-card p {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.5;
+        }
+
+        /* ========== CTA ========== */
+        .cta-section {
+            padding: 0 0 80px;
+        }
+
+        .cta-card {
+            background: linear-gradient(135deg, var(--color-darkest) 0%, var(--color-dark) 100%);
+            border-radius: var(--radius-lg);
+            padding: 64px 48px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -25%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(125, 20, 23, 0.15) 0%, transparent 60%);
+        }
+
+        .cta-card h2 {
+            font-size: 32px;
+            color: white;
+            margin-bottom: 12px;
+            position: relative;
+        }
+
+        .cta-card p {
+            font-size: 16px;
+            color: rgba(255,255,255,0.7);
+            max-width: 480px;
+            margin: 0 auto 32px;
+            position: relative;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--color-accent);
+            color: white;
+            padding: 16px 32px;
+            border-radius: var(--radius-sm);
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .cta-button:hover {
+            background: #921a1e;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(125, 20, 23, 0.4);
+        }
+
+        .cta-button svg {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.2s ease;
+        }
+
+        .cta-button:hover svg {
+            transform: translateX(4px);
+        }
+
+        .cta-meta {
+            margin-top: 20px;
+            font-size: 13px;
+            color: rgba(255,255,255,0.5);
+            position: relative;
+        }
+
+        /* ========== ANIMATIONS ========== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+    </style>
+</head>
+<body>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-tag">AI Services</div>
+                <h1>Intelligent Automation Solutions</h1>
+                <p>Custom workflows that eliminate repetitive tasks, reduce errors, and scale your operations. Powered by AI and seamless integrations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+
+            <!-- ==================== AUTOMATION 1 ==================== -->
+            <article class="automation-card">
+                <div class="workflow-visual">
+                    <div class="workflow-frame">
+                        <img src="workflow-booking.png" alt="Appointment Booking Automation Workflow">
+                    </div>
+                    <div class="production-status">
+                        <span class="status-dot"></span>
+                        This workflow runs in production with real time monitoring, error handling, and continuous optimization.
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <header class="card-header">
+                        <div class="card-eyebrow">Use Case 01</div>
+                        <h2 class="card-title">Intelligent Appointment Booking and Zoom Meeting Automation</h2>
+                        <p class="card-subtitle">A fully automated, 24/7 booking system that transforms appointment scheduling from a time consuming manual process into an instant, error free operation.</p>
+                    </header>
+
+                    <!-- Problem / Solution -->
+                    <div class="two-col">
+                        <div class="info-card problem">
+                            <div class="info-card-header">
+                                <div class="info-icon">!</div>
+                                <h4>The Problem</h4>
+                            </div>
+                            <ul>
+                                <li>Teams waste 20 to 30 minutes per appointment manually coordinating schedules</li>
+                                <li>Checking availability, sending Zoom links, and entering data into CRM</li>
+                                <li>Preventing double bookings requires constant vigilance</li>
+                                <li>Leads to delayed responses, scheduling conflicts, and staff burnout</li>
+                            </ul>
+                        </div>
+                        <div class="info-card solution">
+                            <div class="info-card-header">
+                                <div class="info-icon">✓</div>
+                                <h4>The Solution</h4>
+                            </div>
+                            <ul>
+                                <li>Fully automated booking system running 24/7</li>
+                                <li>Customers book online and everything else happens automatically</li>
+                                <li>Validation, meeting creation, CRM updates, and confirmations</li>
+                                <li>Zero manual intervention required</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- How It Works -->
+                    <div class="steps-section">
+                        <h3 class="section-title">How It Works</h3>
+                        <div class="steps-grid">
+                            <div class="step-card">
+                                <div class="step-image">
+                                    <div class="step-image-placeholder">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                                        <span>Add booking form screenshot</span>
+                                    </div>
+                                </div>
+                                <div class="step-body">
+                                    <div class="step-number">1</div>
+                                    <h5>Customer Books Online</h5>
+                                    <p>Selects service, consultant, date, time, and timezone</p>
+                                </div>
+                            </div>
+
+                            <div class="step-card">
+                                <div class="step-image">
+                                    <div class="step-image-placeholder">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+                                        <span>Add validation screenshot</span>
+                                    </div>
+                                </div>
+                                <div class="step-body">
+                                    <div class="step-number">2</div>
+                                    <h5>Smart Validation</h5>
+                                    <p>Prevents double bookings with duplicate detection</p>
+                                </div>
+                            </div>
+
+                            <div class="step-card">
+                                <div class="step-image">
+                                    <div class="step-image-placeholder">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                                        <span>Add Zoom screenshot</span>
+                                    </div>
+                                </div>
+                                <div class="step-body">
+                                    <div class="step-number">3</div>
+                                    <h5>Zoom Meeting Created</h5>
+                                    <p>Instant meeting generation with all details</p>
+                                </div>
+                            </div>
+
+                            <div class="step-card">
+                                <div class="step-image">
+                                    <div class="step-image-placeholder">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                                        <span>Add Airtable screenshot</span>
+                                    </div>
+                                </div>
+                                <div class="step-body">
+                                    <div class="step-number">4</div>
+                                    <h5>CRM Updated</h5>
+                                    <p>Customer info and appointment details saved</p>
+                                </div>
+                            </div>
+
+                            <div class="step-card">
+                                <div class="step-image">
+                                    <div class="step-image-placeholder">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                                        <span>Add email screenshot</span>
+                                    </div>
+                                </div>
+                                <div class="step-body">
+                                    <div class="step-number">5</div>
+                                    <h5>Confirmation Sent</h5>
+                                    <p>Customer receives email with meeting details</p>
+                                </div>
+                            </div>
+
+                            <div class="step-card">
+                                <div class="step-image">
+                                    <div class="step-image-placeholder">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                                        <span>Add notification screenshot</span>
+                                    </div>
+                                </div>
+                                <div class="step-body">
+                                    <div class="step-number">6</div>
+                                    <h5>Team Notified</h5>
+                                    <p>Internal alert for follow up and preparation</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Results -->
+                    <div class="results-section">
+                        <h3 class="section-title">Results and Impact</h3>
+                        <div class="results-grid">
+                            <div class="result-card">
+                                <div class="result-label">Booking Time</div>
+                                <div class="result-value">95%</div>
+                                <div class="result-detail">faster</div>
+                            </div>
+                            <div class="result-card">
+                                <div class="result-label">Accuracy</div>
+                                <div class="result-value">100%</div>
+                                <div class="result-detail">no double bookings</div>
+                            </div>
+                            <div class="result-card">
+                                <div class="result-label">Time Saved</div>
+                                <div class="result-value">10h</div>
+                                <div class="result-detail">per week</div>
+                            </div>
+                            <div class="result-card">
+                                <div class="result-label">Annual Savings</div>
+                                <div class="result-value">$25K</div>
+                                <div class="result-detail">labor costs</div>
+                            </div>
+                            <div class="result-card">
+                                <div class="result-label">Response</div>
+                                <div class="result-value">Instant</div>
+                                <div class="result-detail">confirmation</div>
+                            </div>
+                            <div class="result-card">
+                                <div class="result-label">No Shows</div>
+                                <div class="result-value">67%</div>
+                                <div class="result-detail">reduction</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- In Production -->
+                    <div class="operations-section">
+                        <h3 class="section-title">In Production</h3>
+                        <div class="operations-grid">
+                            <div class="ops-card">
+                                <div class="ops-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+                                </div>
+                                <h5>Continuous Operation</h5>
+                                <p>Runs 24/7 with automatic retries and failover handling</p>
+                            </div>
+                            <div class="ops-card">
+                                <div class="ops-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                </div>
+                                <h5>Error Handling</h5>
+                                <p>Smart fallbacks, validation checks, and instant alerting</p>
+                            </div>
+                            <div class="ops-card">
+                                <div class="ops-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+                                </div>
+                                <h5>Performance Monitoring</h5>
+                                <p>Real time dashboards and weekly optimization reports</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Benefits -->
+                    <div class="benefits-section">
+                        <h4>Who Benefits</h4>
+                        <div class="benefits-grid">
+                            <div class="benefit-item">
+                                <span class="benefit-check">✓</span>
+                                Consulting and Professional Services managing discovery calls
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-check">✓</span>
+                                Healthcare and Wellness scheduling telehealth appointments
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-check">✓</span>
+                                SaaS and Tech Companies booking product demos
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-check">✓</span>
+                                Education and Training coordinating sessions
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-check">✓</span>
+                                Creative Services scheduling client consultations
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-check">✓</span>
+                                Any business with 10+ external meetings per week
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ==================== AUTOMATION 2 ==================== -->
+            <article class="automation-card">
+                <div class="workflow-visual">
+                    <div class="workflow-frame">
+                        <img src="workflow-ai-support.png" alt="AI Support Ticket Automation Workflow">
+                    </div>
+                    <div class="production-status">
+                        <span class="status-dot"></span>
+                        This workflow runs in production with real time monitoring, error handling, and continuous optimization.
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <header class="card-header">
+                        <div class="card-eyebrow">Use Case 02</div>
+                        <h2 class="card-title">AI Powered IT Support Ticket Automation</h2>
+                        <p class="card-subtitle">An intelligent end to end workflow that transforms support email processing from a manual bottleneck into a seamless, instant operation.</p>
+                    </header>
+
+                    <!-- Problem / Solution -->
+                    <div class="two-col">
+                        <div class="info-card problem">
+                            <div class="info-card-header">
+                                <div class="info-icon">!</div>
+                                <h4>The Problem</h4>
+                            </div>
+                            <ul>
+                                <li>IT support teams spend hours manually processing incoming emails</li>
+                                <li>Reading each request and determining priority takes valuable time</li>
+                                <li>Identifying the right department and creating Jira tickets manually</li>
+                                <li>Causes delays, misrouted tickets, and overwhelmed staff</li>
+                            </ul>
+                        </div>
+                        <div class="info-card solution">
+                            <div class="info-card-header">
+                                <div class="info-icon">✓</div>
+                                <h4>The Solution</h4>
+                            </div>
+                            <ul>
+                                <li>AI analyzes incoming emails to classify content instantly</li>
+                                <li>Automatically determines priority and routes to correct team</li>
+                                <li>Jira tickets created with proper labels and assignments</li>
+                                <li>Teams notified via Slack and customers receive instant confirmation</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- How It Works -->
+                    <div class="steps-section">
+                        <h3 class="section-title">How It Works</h3>
+                        <div class="steps-grid">
+                            <div class="step-card">
+                                <div class="step-image">
+                                    <div class="step-image-placeholder">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                                        <span>Add email screenshot</span>
+                                    </div>
+                                </div>
+                                <div class="step-body">
+                                    <div class="step-number">1</div>
+                                    <h5>Email Arrives</h5>
+                                    <p>Support email captured by automation system</p>
+                                </div>
+                            </div>
+
+                            <div class="step-card">
+                                <div class="step-image">
+                                    <div class="step-image-placeholder">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                                        <span>Add AI analysis screenshot</span>
+                                    </div>
+                                </div>
+                                <div class="step-body">
+                                    <div class="step-number">2</div>
+                                    <h5>AI Analysis</h5>
+                                    <p>Determines priority and department routing</p>
+                                </div>
+                            </div>
+
+                            <div class="step-card">
+                                <div class="step-image">
+                                    <div class="step-image-placeholder">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><path d="M14 2v6h6"/></svg>
+                                        <span>Add Jira screenshot</span>
+                                    </div>
+                                </div>
+                                <div class="step-body">
+                                    <div class="step-number">3</div>
+                                    <h5>Ticket Created</h5>
+                                    <p>Jira ticket with proper labels and assignment</p>
+                                </div>
+                            </div>
+
+                            <div class="step-card">
+                                <div class="step-image">
+                                    <div class="step-image-placeholder">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                                        <span>Add Slack screenshot</span>
+                                    </div>
+                                </div>
+                                <div class="step-body">
+                                    <div class="step-number">4</div>
+                                    <h5>Team Notified</h5>
+                                    <p>Instant Slack alert with ticket details</p>
+                                </div>
+                            </div>
+
+                            <div class="step-card">
+                                <div class="step-image">
+                                    <div class="step-image-placeholder">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                                        <span>Add confirmation screenshot</span>
+                                    </div>
+                                </div>
+                                <div class="step-body">
+                                    <div class="step-number">5</div>
+                                    <h5>Customer Confirmed</h5>
+                                    <p>Auto email with ticket number and details</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Results -->
+                    <div class="results-section">
+                        <h3 class="section-title">Results and Impact</h3>
+                        <div class="results-grid">
+                            <div class="result-card">
+                                <div class="result-label">Response</div>
+                                <div class="result-value">80%</div>
+                                <div class="result-detail">faster routing</div>
+                            </div>
+                            <div class="result-card">
+                                <div class="result-label">Accuracy</div>
+                                <div class="result-value">95%</div>
+                                <div class="result-detail">correct assignment</div>
+                            </div>
+                            <div class="result-card">
+                                <div class="result-label">Time Saved</div>
+                                <div class="result-value">15m</div>
+                                <div class="result-detail">per ticket</div>
+                            </div>
+                            <div class="result-card">
+                                <div class="result-label">Monthly</div>
+                                <div class="result-value">$1.2K</div>
+                                <div class="result-detail">savings</div>
+                            </div>
+                            <div class="result-card">
+                                <div class="result-label">Setup</div>
+                                <div class="result-value">3 to 4h</div>
+                                <div class="result-detail">implementation</div>
+                            </div>
+                            <div class="result-card">
+                                <div class="result-label">ROI</div>
+                                <div class="result-value">1400%</div>
+                                <div class="result-detail">return</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- In Production -->
+                    <div class="operations-section">
+                        <h3 class="section-title">In Production</h3>
+                        <div class="operations-grid">
+                            <div class="ops-card">
+                                <div class="ops-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+                                </div>
+                                <h5>Continuous Operation</h5>
+                                <p>Runs 24/7 with automatic retries and failover handling</p>
+                            </div>
+                            <div class="ops-card">
+                                <div class="ops-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                </div>
+                                <h5>Error Handling</h5>
+                                <p>Smart fallbacks, validation checks, and instant alerting</p>
+                            </div>
+                            <div class="ops-card">
+                                <div class="ops-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+                                </div>
+                                <h5>Performance Monitoring</h5>
+                                <p>Real time dashboards and weekly optimization reports</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Benefits -->
+                    <div class="benefits-section">
+                        <h4>Who Benefits</h4>
+                        <div class="benefits-grid">
+                            <div class="benefit-item">
+                                <span class="benefit-check">✓</span>
+                                SaaS and Tech Companies managing support at scale
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-check">✓</span>
+                                IT Service Providers handling multiple clients
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-check">✓</span>
+                                E commerce businesses with high ticket volumes
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-check">✓</span>
+                                Organizations using Jira and Slack for support
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-card">
+                <h2>Ready to Automate Your Workflows?</h2>
+                <p>Let's discuss how custom automation can transform your operations and free your team to focus on what matters.</p>
+                <a href="https://whiteraventech.com/schedule-consultation/" class="cta-button">
+                    Schedule a Consultation
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <p class="cta-meta">Fully customizable | Implementation in 3 to 4 hours</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
